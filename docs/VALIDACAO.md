@@ -46,3 +46,7 @@ A chave usada nos ensaios permanece em configuração privada externa. Código e
 ## Limites
 
 Não houve piloto com equipe de compras, medição de economia de tempo, avaliação ampla de documentos, auditoria independente ou homologação de produção. O Docker e o workflow remoto de CI estão preparados, mas não foram executados nesta entrega. Não houve publicação no GitHub ou implantação pública. O próximo experimento está em `ESCOPO.md` e o arquivo `piloto.csv` contém apenas o cabeçalho.
+
+## Integração contínua no GitHub
+
+O [workflow de testes](https://github.com/BernardoReges/cotaflux/actions/runs/43055415114) terminou com sucesso em `ubuntu-latest`, usando Node.js 24, no commit `936ed45b29c229b37cc761d72986e7100d097518`. Evidência: `ci-validation.json`. A validação da interface e os ensaios de IA descritos acima foram realizados no Windows.
