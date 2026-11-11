@@ -38,7 +38,7 @@ No exemplo da interface, uma cesta de copos e café aparece por **R$ 480,00**, *
 
 ## Como experimentar
 
-Requisito: **Node.js 24 LTS**. Não há dependências npm de runtime nem instalação obrigatória de pacotes.
+Requisito: **Node.js 24 LTS**. Não há dependências npm de runtime nem instalação obrigatória de pacotes. Na pasta do projeto, execute:
 
 ```sh
 npm run demo
@@ -63,7 +63,7 @@ Copie `.env.example` para `.env`, configure sua própria chave e uma pasta de da
 GEMINI_API_KEY=sua_chave_somente_no_arquivo_local
 GEMINI_MODEL=gemini-3.1-flash-lite
 GEMINI_VISION_MODEL=gemini-3.5-flash-lite
-DATA_DIR=D:/DadosProjetos/cotaflux-real
+DATA_DIR=./data/real
 DEMO=false
 ```
 
@@ -85,13 +85,15 @@ Para uso remoto, utilize domínio, proxy HTTPS, `APP_ORIGIN` exato e `SECURE_COO
 
 `DATA_DIR/app.sqlite` contém usuários, sessões, cotações, propostas, anexos, tarefas e eventos. O padrão sem configuração é `./data`; a demonstração via `npm run demo` usa `./data/demo`. Não misture a pasta demonstrativa com a instalação real.
 
+O comando de demonstração usa `DEMO_DATA_DIR`, independente de `DATA_DIR`. O banco registra o modo e o produto da instalação e recusa abertura por outro modo ou aplicativo. Assim, uma pasta de dados reais não ganha o acesso demonstrativo sem senha por uma troca de configuração. No Windows, você pode escolher uma pasta externa como `D:/DadosProjetos/cotaflux-real`.
+
 Os anexos são BLOBs privados no SQLite, sem URLs públicas estáticas. Os limites atuais são 8 MB por arquivo e 500 documentos por instalação. Uma instalação representa uma empresa; compradores compartilham as cotações dessa empresa. Não há isolamento de várias empresas no mesmo banco.
 
 ```sh
-npm run backup -- D:/Backups/CotaFlux
+npm run backup -- ./backups
 ```
 
-O backup usa a API online do SQLite, inclui anexos e confere integridade. Para restaurar, pare o servidor, preserve a pasta atual, use uma pasta nova e copie o backup como `app.sqlite`; depois aponte `DATA_DIR` para ela. Não substitua bancos enquanto o aplicativo estiver aberto. Nunca envie banco, backup, CSV privado ou `.env` ao GitHub.
+O comando copia a base apontada por `DATA_DIR`; para salvar uma demonstração, aponte essa variável explicitamente para a pasta demonstrativa. O backup usa a API online do SQLite, inclui anexos e confere integridade. Para restaurar, pare o servidor, preserve a pasta atual, use uma pasta nova e copie o backup como `app.sqlite`; depois aponte `DATA_DIR` para ela. Não substitua bancos enquanto o aplicativo estiver aberto. Nunca envie banco, backup, CSV privado ou `.env` ao GitHub.
 
 ## Arquitetura
 
@@ -120,12 +122,12 @@ npm run evaluate:ai
 
 Os testes determinísticos cobrem contas, equivalências, sessões, CSRF, permissões, versões, transações, anexos e falhas do provedor. Os ensaios de IA usam documentos fictícios e registram campos esperados, resposta e erros em `docs/ai-*.json`; não são um benchmark independente nem uma promessa de acurácia geral.
 
+Na revisão da versão **0.1.1**, passaram **28 testes**, incluindo isolamento entre modo real e demonstrativo e bloqueio de reutilização do banco por outro produto. A receita Docker e o workflow de CI estão incluídos; a execução validada nesta revisão foi local, no Windows com Node.js 24.
+
 Confira [resultados e limites](docs/VALIDACAO.md), [arquitetura e decisões](docs/ARQUITETURA.md), [contrato da API](docs/API.md), [escopo e próximos passos](docs/ESCOPO.md) e [segurança](SECURITY.md).
 
-## Publicação, licença e autoria
+## Licença e desenvolvimento
 
-A recomendação é **código aberto sob MIT**, com exemplos sintéticos e configuração de chave própria. Uma vitrine privada esconderia a implementação que o portfólio precisa demonstrar. Open source permite cópia e adaptação conforme a licença; não é uma forma de impedir cópias.
+Licenciado sob [MIT](LICENSE). Cada instalação configura sua própria chave de IA. Os exemplos incluídos são fictícios; bancos de dados, comprovantes privados e credenciais não fazem parte da distribuição.
 
-O código, as telas e os testes foram desenvolvidos com assistência de IA. As técnicas são conhecidas; não se reivindica exclusividade da ideia. O responsável pelo portfólio deve conseguir explicar os cálculos, permissões, contratos e limites e descrever honestamente suas contribuições. Não há vínculo ou aprovação do iFood.
-
-Esta entrega permanece **local**, sem criação ou envio a repositório remoto e sem implantação pública. A publicação depende da revisão do proprietário.
+Desenvolvido por [BernardoReges](https://github.com/BernardoReges), com assistência de IA. A infraestrutura inicial de autenticação, persistência e extração é compartilhada com o Rota Recibos; os domínios e testes de negócio são separados. Contribuições são descritas em [CONTRIBUTING.md](CONTRIBUTING.md).

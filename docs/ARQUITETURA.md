@@ -31,6 +31,8 @@
 
 **Sessão do servidor.** Senhas com scrypt; tokens com hash e validade, cookies HttpOnly e SameSite=Strict. O nome do cookie é específico do produto, evitando conflito com Rota Recibos no mesmo computador. Uma troca de senha revoga sessões anteriores.
 
+**Identidade da instalação.** O banco guarda modo (real ou demonstração) e produto. A verificação acontece antes da recuperação de tarefas e da abertura dos endpoints. Configurações incompatíveis são recusadas sem alterar os registros existentes. O comando de demonstração usa `DEMO_DATA_DIR`, independente da pasta real `DATA_DIR`. Uma base antiga com dados só pode ser adotada em modo real; a identificação de uma demonstração antiga exige conferência e backup explícitos.
+
 ## Modelo de dados
 
 ```mermaid

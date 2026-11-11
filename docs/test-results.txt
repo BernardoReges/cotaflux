@@ -2,147 +2,177 @@ TAP version 13
 # Subtest: senha exige 12 caracteres e não é guardada em texto puro
 ok 1 - senha exige 12 caracteres e não é guardada em texto puro
   ---
-  duration_ms: 91.6018
+  duration_ms: 93.3047
   type: 'test'
   ...
 # Subtest: sessões usam token aleatório, resumo no banco e vencimento
 ok 2 - sessões usam token aleatório, resumo no banco e vencimento
   ---
-  duration_ms: 59.1035
+  duration_ms: 64.7014
   type: 'test'
   ...
 # Subtest: centavos, datas e quantidades inválidas são rejeitados
 ok 3 - centavos, datas e quantidades inválidas são rejeitados
   ---
-  duration_ms: 1.4241
+  duration_ms: 1.5501
   type: 'test'
   ...
 # Subtest: CSV protege texto de fórmulas e mantém separador brasileiro
 ok 4 - CSV protege texto de fórmulas e mantém separador brasileiro
   ---
-  duration_ms: 0.3629
+  duration_ms: 0.4252
   type: 'test'
   ...
 # Subtest: transação reverte escrita incompleta
 ok 5 - transação reverte escrita incompleta
   ---
-  duration_ms: 19.0712
+  duration_ms: 23.6268
   type: 'test'
   ...
 # Subtest: upload verifica assinatura, duplicidade e limite
 ok 6 - upload verifica assinatura, duplicidade e limite
   ---
-  duration_ms: 20.613
+  duration_ms: 27.1465
   type: 'test'
   ...
 # Subtest: sem chave não simula extração
 ok 7 - sem chave não simula extração
   ---
-  duration_ms: 0.5872
+  duration_ms: 0.9348
   type: 'test'
   ...
 # Subtest: provedor falha sem expor token ou transformar erro em resultado
 ok 8 - provedor falha sem expor token ou transformar erro em resultado
   ---
-  duration_ms: 1.0073
+  duration_ms: 1.2175
   type: 'test'
   ...
 # Subtest: extração envia segredo no cabeçalho e valida JSON de retorno
 ok 9 - extração envia segredo no cabeçalho e valida JSON de retorno
   ---
-  duration_ms: 0.4005
+  duration_ms: 0.3874
   type: 'test'
   ...
 # Subtest: validade usa o dia de Brasília mesmo quando UTC já mudou de data
 ok 10 - validade usa o dia de Brasília mesmo quando UTC já mudou de data
   ---
-  duration_ms: 17.737
+  duration_ms: 17.9515
   type: 'test'
   ...
 # Subtest: leitura que termina após o encerramento não altera a proposta ou a decisão
 ok 11 - leitura que termina após o encerramento não altera a proposta ou a decisão
   ---
-  duration_ms: 646.1679
+  duration_ms: 657.448
   type: 'test'
   ...
 # Subtest: comparação calcula embalagens inteiras e inclui frete uma vez
 ok 12 - comparação calcula embalagens inteiras e inclui frete uma vez
   ---
-  duration_ms: 0.3366
+  duration_ms: 0.2815
   type: 'test'
   ...
 # Subtest: divisão decimal não compra uma embalagem extra por erro de ponto flutuante
 ok 13 - divisão decimal não compra uma embalagem extra por erro de ponto flutuante
   ---
-  duration_ms: 0.1903
+  duration_ms: 0.1802
   type: 'test'
   ...
 # Subtest: ranking bloqueia embalagem não confirmada, unidade divergente e proposta vencida
 ok 14 - ranking bloqueia embalagem não confirmada, unidade divergente e proposta vencida
   ---
-  duration_ms: 0.222
+  duration_ms: 0.2089
   type: 'test'
   ...
 # Subtest: vinculação duplicada e preço fracionário em centavos são rejeitados
 ok 15 - vinculação duplicada e preço fracionário em centavos são rejeitados
   ---
-  duration_ms: 0.3724
+  duration_ms: 0.3285
   type: 'test'
   ...
 # Subtest: API exige sessão, bloqueia origem externa, arquivos privados e setup repetido
 ok 16 - API exige sessão, bloqueia origem externa, arquivos privados e setup repetido
   ---
-  duration_ms: 66.3051
+  duration_ms: 66.4551
   type: 'test'
   ...
 # Subtest: fluxo HTTP compara e encerra sem permitir edição posterior
 ok 17 - fluxo HTTP compara e encerra sem permitir edição posterior
   ---
-  duration_ms: 70.091
+  duration_ms: 74.066
   type: 'test'
   ...
 # Subtest: comprador não pode criar usuários nem ler auditoria administrativa
 ok 18 - comprador não pode criar usuários nem ler auditoria administrativa
   ---
-  duration_ms: 84.1708
+  duration_ms: 89.3459
+  type: 'test'
+  ...
+# Subtest: demo ignora DATA_DIR real e aceita somente a configuração própria de pasta
+ok 19 - demo ignora DATA_DIR real e aceita somente a configuração própria de pasta
+  ---
+  duration_ms: 0.7585
+  type: 'test'
+  ...
+# Subtest: base real recusa modo demo sem alterar usuários, registros ou tarefas
+ok 20 - base real recusa modo demo sem alterar usuários, registros ou tarefas
+  ---
+  duration_ms: 89.4384
+  type: 'test'
+  ...
+# Subtest: base demonstrativa não é reutilizada como instalação real
+ok 21 - base demonstrativa não é reutilizada como instalação real
+  ---
+  duration_ms: 63.5039
+  type: 'test'
+  ...
+# Subtest: base antiga com dados exige início real e não ganha acesso demo sem senha
+ok 22 - base antiga com dados exige início real e não ganha acesso demo sem senha
+  ---
+  duration_ms: 64.0705
+  type: 'test'
+  ...
+# Subtest: uma aplicação não abre o banco marcado como pertencente ao outro projeto
+ok 23 - uma aplicação não abre o banco marcado como pertencente ao outro projeto
+  ---
+  duration_ms: 56.1301
   type: 'test'
   ...
 # Subtest: troca de senha exige senha atual e revoga todas as sessões anteriores
-ok 19 - troca de senha exige senha atual e revoga todas as sessões anteriores
+ok 24 - troca de senha exige senha atual e revoga todas as sessões anteriores
   ---
-  duration_ms: 257.8412
+  duration_ms: 289.3269
   type: 'test'
   ...
 # Subtest: requisições de formulário e sem cabeçalho da aplicação são bloqueadas
-ok 20 - requisições de formulário e sem cabeçalho da aplicação são bloqueadas
+ok 25 - requisições de formulário e sem cabeçalho da aplicação são bloqueadas
   ---
-  duration_ms: 24.1221
+  duration_ms: 27.0824
   type: 'test'
   ...
 # Subtest: cookie é próprio do produto e logout invalida a sessão no servidor
-ok 21 - cookie é próprio do produto e logout invalida a sessão no servidor
+ok 26 - cookie é próprio do produto e logout invalida a sessão no servidor
   ---
-  duration_ms: 58.8836
+  duration_ms: 60.7283
   type: 'test'
   ...
 # Subtest: demonstração não abre acesso sem estar habilitada na instalação
-ok 22 - demonstração não abre acesso sem estar habilitada na instalação
+ok 27 - demonstração não abre acesso sem estar habilitada na instalação
   ---
-  duration_ms: 22.0332
+  duration_ms: 23.395
   type: 'test'
   ...
 # Subtest: login limita tentativas e não informa se o e-mail existe
-ok 23 - login limita tentativas e não informa se o e-mail existe
+ok 28 - login limita tentativas e não informa se o e-mail existe
   ---
-  duration_ms: 28.7551
+  duration_ms: 31.9663
   type: 'test'
   ...
-1..23
-# tests 23
+1..28
+# tests 28
 # suites 0
-# pass 23
+# pass 28
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 1015.9207
+# duration_ms 1042.2405

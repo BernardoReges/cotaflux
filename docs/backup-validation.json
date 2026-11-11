@@ -1,10 +1,12 @@
 {
-  "generatedAt": "2026-11-11T09:53:19.191Z",
+  "generatedAt": "2026-11-11T15:56:55.207Z",
   "synthetic": true,
   "restoreIntegrity": "ok",
   "recordsChecked": 4,
   "attachmentsChecked": 1,
   "recordsEqual": true,
   "attachmentBytesEqual": true,
+  "installationMode": "demo",
+  "installationProduct": "cotaflux",
   "sourceUnchanged": true
 }

@@ -4,9 +4,13 @@
 
 Aplicação local executada com Node.js 24 no Windows. O banco demonstrativo passou em `PRAGMA integrity_check` após uma queda de energia real entre as sessões de desenvolvimento. Os três registros de proposta, a cotação e a tarefa concluída foram preservados. Isso documenta este incidente observado; não é uma garantia contra qualquer tipo de perda ou falha de armazenamento.
 
+## Revisão para publicação — versão 0.1.1
+
+A revisão acrescentou identificação persistente de modo e produto no banco. A demonstração passou a ignorar DATA_DIR real, usando DEMO_DATA_DIR. São bloqueadas as trocas demo/real, o acesso demonstrativo a banco antigo com dados e a reutilização do banco por outro produto. Os testes verificam que uma recusa não altera usuários, registros ou tarefas. As duas demonstrações locais existentes foram identificadas após backup, com integridade e preservação de dados conferidas.
+
 ## Testes determinísticos
 
-**23 testes aprovados, zero falhas na rodada final.** O conjunto cobre cálculo por embalagem, seis casas decimais nas quantidades, frete, unidade incompatível, propostas vencidas ou não conferidas, senha, sessão e expiração, troca de senha e revogação, CSRF, origem externa, permissão administrativa, transação, arquivos inválidos/duplicados, limites, falha de provedor, edição obsoleta e encerramento durante uma leitura.
+**28 testes aprovados, zero falhas na rodada final.** O conjunto cobre cálculo por embalagem, seis casas decimais nas quantidades, frete, unidade incompatível, propostas vencidas ou não conferidas, senha, sessão e expiração, troca de senha e revogação, CSRF, origem externa, permissão administrativa, transação, arquivos inválidos/duplicados, limites, falha de provedor, edição obsoleta e encerramento durante uma leitura.
 
 Uma leitura que termina depois da decisão não pode alterar a proposta encerrada. O comparativo da decisão é guardado com fornecedor, total e linhas calculadas, preservando os valores da escolha mesmo quando a validade da proposta expirar. A verificação de validade usa o dia de Brasília.
 
