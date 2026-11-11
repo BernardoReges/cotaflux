@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-11-11T02:53:03.893Z",
+  "synthetic": true,
+  "notes": "Casos de regressão do próprio projeto. Não medem acurácia em documentos reais.",
+  "results": [
+    {
+      "name": "embalagem-e-frete",
+      "data": {
+        "supplier": "Aurora Exemplo",
+        "freightCents": 3500,
+        "deadlineDays": 3,
+        "validUntil": "2026-12-31",
+        "items": [
+          {
+            "description": "Copo de papel 200 ml",
+            "unit": "un",
+            "packUnits": 100,
+            "packPriceCents": 1890,
+            "evidence": "Copo de papel 200 ml: pacote de 100 unidades por R$ 18,90 cada pacote."
+          },
+          {
+            "description": "Cafe torrado",
+            "unit": "kg",
+            "packUnits": 1,
+            "packPriceCents": 2600,
+            "evidence": "Cafe torrado: pacote de 1 kg por R$ 26,00 cada pacote."
+          }
+        ]
+      },
+      "provider": "Gemini",
+      "model": "gemini-3.1-flash-lite",
+      "elapsedMs": 2417,
+      "checks": [
+        {
+          "field": "freightCents",
+          "expected": 3500,
+          "actual": 3500,
+          "passed": true
+        },
+        {
+          "field": "deadlineDays",
+          "expected": 3,
+          "actual": 3,
+          "passed": true
+        },
+        {
+          "field": "validUntil",
+          "expected": "2026-12-31",
+          "actual": "2026-12-31",
+          "passed": true
+        },
+        {
+          "field": "firstPackUnits",
+          "expected": 100,
+          "actual": 100,
+          "passed": true
+        },
+        {
+          "field": "firstPackPriceCents",
+          "expected": 1890,
+          "actual": 1890,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "name": "frete-ausente",
+      "data": {
+        "supplier": "Horizonte Exemplo",
+        "freightCents": null,
+        "deadlineDays": null,
+        "validUntil": null,
+        "items": [
+          {
+            "description": "Copo de papel 200 ml",
+            "unit": "un",
+            "packUnits": 100,
+            "packPriceCents": 2050,
+            "evidence": "Copo de papel 200 ml: pacote de 100 unidades por R$ 20,50 cada pacote."
+          }
+        ]
+      },
+      "provider": "Gemini",
+      "model": "gemini-3.1-flash-lite",
+      "elapsedMs": 2992,
+      "checks": [
+        {
+          "field": "freightCents",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "field": "deadlineDays",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        },
+        {
+          "field": "validUntil",
+          "expected": null,
+          "actual": null,
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

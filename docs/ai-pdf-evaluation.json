@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "data": {
+    "supplier": "Aurora Exemplo",
+    "freightCents": 3500,
+    "deadlineDays": 3,
+    "validUntil": "2026-12-31",
+    "items": [
+      {
+        "description": "Copo de papel 200 ml",
+        "unit": "un",
+        "packUnits": 100,
+        "packPriceCents": 1890,
+        "evidence": "Copo de papel 200 ml: pacote de 100 unidades.\nPreco de cada pacote de copos: R$ 18,90."
+      },
+      {
+        "description": "Cafe torrado",
+        "unit": "kg",
+        "packUnits": 1,
+        "packPriceCents": 2600,
+        "evidence": "Cafe torrado: pacote de 1 kg.\nPreco de cada pacote de cafe: R$ 26,00."
+      }
+    ]
+  },
+  "provider": "Gemini",
+  "model": "gemini-3.5-flash-lite",
+  "elapsedMs": 1612,
+  "checks": {
+    "pack": true,
+    "price": true,
+    "freight": true,
+    "validUntil": true
+  }
+}
